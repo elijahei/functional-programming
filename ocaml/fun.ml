@@ -8,4 +8,20 @@ let rec within_three acc l =
   else "OUT OF BOUNDS!!";;
 
 
-print_string (within_three 0 [1;2;3;4;5;6]);
+
+
+
+let rec apply_func func l =
+  match l with 
+  | [] -> []
+  | h::t -> func h :: apply_func func t;;
+
+
+  let f a = a*12;;
+  
+
+
+let li = apply_func f [1;2;3];;
+
+print_string (String.concat " " (List.map string_of_int li))
+
