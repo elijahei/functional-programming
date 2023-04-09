@@ -11,13 +11,13 @@ let rec within_three acc l =
 
 
 
-let rec apply_func func l =
+let rec apply_func (func : int -> int) (l : int list) : int list =
   match l with 
   | [] -> []
   | h::t -> func h :: apply_func func t;;
 
 
-  let f a = a*12;;
+  let f (a : int) : int = a*12;;
   
 
 
