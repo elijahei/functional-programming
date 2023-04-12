@@ -23,5 +23,16 @@ let rec apply_func (func : int -> int) (l : int list) : int list =
 
 let li = apply_func f [1;2;3];;
 
-print_string (String.concat " " (List.map string_of_int li))
 
+let rec parallel_prefix (acc : int) (l : int list) : int list=
+  match l with 
+  | [] -> []
+  | h::t -> acc+h :: parallel_prefix (acc+h) t;;
+
+
+
+
+let lis = parallel_prefix 0 [1;2;3;4;5;6];;
+
+open Printf
+let () = List.iter (printf "%d ") lis;;
